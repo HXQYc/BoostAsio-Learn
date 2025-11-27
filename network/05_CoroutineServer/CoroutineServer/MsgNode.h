@@ -27,7 +27,7 @@ public:
 		_cur_len = 0;
 	}
 
-protected:
+//  protected:
 	short _cur_len;
 	short _total_len;
 	char* _data;
