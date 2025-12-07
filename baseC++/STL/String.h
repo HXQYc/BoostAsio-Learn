@@ -9,8 +9,12 @@ public:
 	String(const char* otherStr);
 	~String();
 
-	String operator+(const String& otherStr) const;		// ×Ö·û´®Æ´½Ó
-	String operator-(const String& otherStr) const;		// É¾³ý×Ó´®
+	//String operator+(const String& otherStr) const;		// ×Ö·û´®Æ´½Ó
+	//String operator-(const String& otherStr) const;		// É¾³ý×Ó´®
+
+	String& operator+(const String& otherStr);		// ×Ö·û´®Æ´½Ó
+	String& operator-(const String& otherStr);		// É¾³ý×Ó´®
+
 	String& operator=(const String& otherStr);
 	String& operator=(const char* str);                  // C×Ö·û´®¸³Öµ
 
@@ -18,9 +22,12 @@ public:
 	int find(const String& subStr) const;				// ²éÕÒ×Ó´®
 	int find(const char* subStr) const;                   // ²éÕÒ×Ó´®
 
-private:
-	void renewBuffer(size_t requiredSize);				// buffer_size * 2
+	friend std::ostream& operator<<(std::ostream& os, const String& str);
 
+private:
+	String(size_t len);
+	void renewBuffer(size_t requiredSize);				// buffer_size * 2
+	int findSubstring(const char* str, size_t str_len, const char* sub, size_t sub_len) const;
 
 	char* _buffer;				// ¶¯Ì¬»º³åÇø
 	size_t _buffer_size;		// »º³åÇø×ÜÈÝÁ¿

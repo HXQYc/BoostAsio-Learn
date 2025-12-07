@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include "List_Test.h"
+#include "String_test.h"
 
 
 
@@ -10,7 +11,7 @@ int main()
 {
     // std::cout << "Hello World!\n" << std::endl;
 	// testList();
-
+	StringTest();
 
 
 
